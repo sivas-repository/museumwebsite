@@ -101,20 +101,20 @@
                                         </legend>
                                         <br>
 
-                                        <div class="d-flex flex-row justify-content-center">
+                                        <div class="d-flex flex-column flex-md-row justify-content-center">
                                             <div class="d-flex flex-column justify-content-center mr-5">
 
                                             <p>
-                                                <input type="text" name="name" id="name" placeholder="Name*" autocomplete="on" required >
+                                                <input type="text" class="form-control mb-3" name="name" id="name" placeholder="Name*" autocomplete="on" required >
 
                                             </p>
 
                                             <p>                                        
-                                                <input type="email" name="email" id="email" placeholder="E-Mail ID*" autocomplete="on" required>
+                                                <input type="email" class="form-control mb-3" name="email" id="email" placeholder="E-Mail ID*" autocomplete="on" required>
                                             </p>
 
                                             <p>                                            
-                                                <input type="tel" name="phone" id="phone" placeholder="Contact Number*" autocomplete="on" required>
+                                                <input type="tel" class="form-control mb-3" name="phone" id="phone" placeholder="Contact Number*" autocomplete="on" required>
                                             </p>
 
                                             </div>
@@ -123,22 +123,26 @@
                                     
                                                 <p>
                                                 
-                                                    <textarea name="message" id="messagetext" placeholder="Type your message here*" rows="5" cols="50"></textarea>
+                                                    <textarea name="message" class="form-control mb-3" id="messagetext" placeholder="Type your message here*" rows="5" cols="50"></textarea>
                                                 </p> 
 
                                             </div>
 
                                         </div>
-                                    </fieldset>
-                                </form>
+                                    
                                         
-                                        <div class="d-flex flex row justify-content-end">
+                                        <div class="d-flex flex-column justify-content-center flex-md-row justify-content-md-between mt-3">
                                         
-                                            <button class="btn button-prop mr-3" type="submit" formaction="https://httpbin.org/post" formmethod="post">Submit</button>
+                                            <button class="btn button-prop " type="submit" formaction="https://httpbin.org/post" formmethod="post">Submit</button>
                                             <br>
-                                            <button class="btn button-prop mr-5" type="reset">Reset</button>
+                                            
+                                            <button class="btn button-prop" type="reset">Reset</button>
+                                            
                                         
                                         </div>
+
+                                        </fieldset>
+                                </form>
 
                                     
                                

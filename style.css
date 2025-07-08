@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;0,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap&family=Glacial+Indifference');
 
 *{
 font-family: 'Glacial Indifference', sans-serif;
@@ -13,6 +12,8 @@ body {
   transition: opacity 1s ease-in;
   overflow-x: hidden;
 }
+
+
 
 body.loaded {
   opacity: 1;
@@ -92,16 +93,26 @@ img {
   overflow: hidden;
 }
 
+
 .hero-container {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/Background-Image.png");
   background-size: cover;
+  background-position: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
- }
+}
 
+/* Mobile version */
+@media (max-width: 768px) {
+  .hero-container {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/Background-Image.png");
+    background-size: cover;
+    background-position: center;
+  }
+}
  
 
 .booking-container {
@@ -114,8 +125,17 @@ img {
   
  }
 
+ /* Mobile version */
+@media (max-width: 768px) {
+  .booking-container {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/ticket-counter.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 .contact-container {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/contact.jpg");
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/contact-us.jpg");
   background-size: cover;
   align-items: center;
   min-height: 60vh;
@@ -123,6 +143,15 @@ img {
   flex-direction: column;
   
  }
+
+ /* Mobile version */
+@media (max-width: 768px) {
+  .contact-container {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/contact-us.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
 
 
 .hero-wrapper {
@@ -161,12 +190,13 @@ img {
   display: inline-block;
   color: #000;
   padding-top: 10px;
-  animation: slide 15s linear infinite;
+  animation: slide 10s linear infinite;
 }
 
 .text-slide:hover {
   animation-play-state: paused;
 }
+
 
 @keyframes slide {
   0% {
@@ -182,6 +212,38 @@ img {
     transform: translateX(-250%);   /* Off-screen left */
   }
 }
+
+
+@media (max-width: 768px) {
+  .text-slide {
+    animation: slide-small 6s linear infinite;
+    font-size: 14px;
+  }
+
+  .top-content p {
+    font-size: 12px; /* or even 12px if needed */
+  }
+}
+
+
+@keyframes slide-small {
+  0% {
+    transform: translateX(150%);    /* Off-screen right */
+  }
+  40% {
+    transform: translateX(0%);      /* Center */
+  }
+  70% {
+    transform: translateX(0%);      /* Stay at center */
+  }
+  100% {
+    transform: translateX(-150%);   /* Off-screen left */
+  }
+}
+
+
+
+
 
 .centered-content {
   text-align: center;
@@ -395,9 +457,19 @@ color: rgb(105, 105, 105);
 
 .abt-us-img-box-2 {
 
+   max-width: 100%;
+  height: auto;
+  display: block;
   text-align: center;
-  margin-top: 60px;
   margin-right: 40px;
+  
+}
+
+.abt-us-img-box-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* or use "contain" if you don't want cropping */
+  
 }
 
 .abt-us-img-prop-1 {
@@ -505,9 +577,20 @@ summary:hover{
 }
 
 .slide {
-  flex: 0 0 calc(100% / 4); /* For 3 slides per view */
+  flex: 0 0 calc(100% /4); /* For 3 slides per view */
   box-sizing: border-box;
   padding: 0 10px;
+}
+
+.swiper-slide {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 100%; /* 1 slide per view */
+    padding: 0 5px;
+  }
 }
 
 .contactpage-quicklink {
@@ -533,5 +616,67 @@ summary:hover{
 
   .navbar-nav {
     text-align: center;
+  }
+}
+
+/* Default order on small devices */
+.what-heading {
+  order: 1;
+}
+.what-image {
+  order: 2;
+}
+.what-paragraph {
+  order: 3;
+}
+.what-button {
+  order: 4;
+}
+
+/* Reorder for medium devices and up (image comes first) */
+@media (min-width: 768px) {
+  .text-block {
+    order: 2;
+  }
+  .image-block {
+    order: 1;
+  }
+
+  .what-heading,
+  .what-paragraph,
+  .what-button {
+    order: initial; /* default flow inside the text block */
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Text content: justified */
+  p, .main-para, .description-text {
+    text-align: center;
+  }
+
+  /* Center-align headings, buttons, and images */
+  h1, h2, h3, h4, h5,
+  .button-prop, .button-prop1, img, .form-control {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;  /* Ensures elements are treated as blocks */
+    text-align: center;
+  }
+
+  /* Optional: Center entire container content using flexbox */
+  .mobile-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-center-read-more{
+
+    display: flex;
+    flex-direction: row;
+    align-items: justify;
+
   }
 }
